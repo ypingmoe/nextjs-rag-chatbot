@@ -16,8 +16,8 @@ export function Chat() {
     <div className="flex h-full flex-col">
       <div className="flex-1 space-y-4 overflow-y-auto p-4">
         {messages.length === 0 && (
-          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6">
-            <p className="mb-3 text-sm font-medium text-slate-700">
+          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4">
+            <p className="mb-2 text-xs font-medium text-slate-700">
               Try asking:
             </p>
             <div className="flex flex-wrap gap-2">
@@ -62,19 +62,19 @@ export function Chat() {
 
       <form
         onSubmit={handleSubmit}
-        className="border-t border-slate-200 bg-white p-4"
+        className="border-t border-slate-200 bg-white p-3"
       >
         <div className="flex gap-2">
           <input
             value={input}
             onChange={handleInputChange}
-            placeholder="Ask about RAG, Next.js, or AI integration..."
-            className="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none ring-indigo-500 focus:ring-2"
+            placeholder="Ask a question..."
+            className="flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm outline-none ring-indigo-500 focus:ring-2"
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="rounded-xl bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
+            className="rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
           >
             Send
           </button>
