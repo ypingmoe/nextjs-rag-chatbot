@@ -1,6 +1,14 @@
 ﻿"use client";
 
 import { useChat } from "@ai-sdk/react";
+import {
+  ArrowPathIcon,
+  ChatBubbleLeftEllipsisIcon,
+  LightBulbIcon,
+  PaperAirplaneIcon,
+  SparklesIcon,
+  UserIcon,
+} from "@/components/icons";
 
 const STARTERS = [
   "What is RAG and when should I use it?",
@@ -17,7 +25,8 @@ export function Chat() {
       <div className="flex-1 space-y-4 overflow-y-auto p-4">
         {messages.length === 0 && (
           <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4">
-            <p className="mb-2 text-xs font-medium text-slate-700">
+            <p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-slate-700">
+              <LightBulbIcon size={14} className="text-amber-500" />
               Try asking:
             </p>
             <div className="flex flex-wrap gap-2">
@@ -26,8 +35,12 @@ export function Chat() {
                   key={q}
                   type="button"
                   onClick={() => append({ role: "user", content: q })}
-                  className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-left text-xs text-slate-600 hover:border-indigo-300 hover:text-indigo-700"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-left text-xs text-slate-600 hover:border-indigo-300 hover:text-indigo-700"
                 >
+                  <ChatBubbleLeftEllipsisIcon
+                    size={12}
+                    className="shrink-0 text-indigo-400"
+                  />
                   {q}
                 </button>
               ))}
@@ -47,8 +60,18 @@ export function Chat() {
                   : "border border-slate-200 bg-white text-slate-800 shadow-sm"
               }`}
             >
-              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wide opacity-60">
-                {m.role === "user" ? "You" : "Assistant"}
+              <p className="mb-1 flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide opacity-60">
+                {m.role === "user" ? (
+                  <>
+                    <UserIcon size={12} />
+                    You
+                  </>
+                ) : (
+                  <>
+                    <SparklesIcon size={12} />
+                    Assistant
+                  </>
+                )}
               </p>
               <div className="whitespace-pre-wrap">{m.content}</div>
             </div>
@@ -56,7 +79,10 @@ export function Chat() {
         ))}
 
         {isLoading && (
-          <div className="text-sm text-slate-400">Retrieving context...</div>
+          <div className="flex items-center gap-2 text-sm text-slate-400">
+            <ArrowPathIcon size={16} className="animate-spin" />
+            Retrieving context...
+          </div>
         )}
       </div>
 
@@ -74,8 +100,9 @@ export function Chat() {
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-50"
           >
+            <PaperAirplaneIcon size={16} />
             Send
           </button>
         </div>

@@ -2,42 +2,12 @@
 
 import { useState } from "react";
 import { Chat } from "@/components/chat";
-
-function ChatIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.023 3.348 3.97v6.02c0 1.946-1.368 3.678-3.348 3.97a48.901 48.901 0 01-3.476.383.39.39 0 00-.297.17l-2.755 4.133a.75.75 0 01-1.248 0l-2.755-4.133a.39.39 0 00-.297-.17 48.9 48.9 0 01-3.476-.384c-1.98-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.368-3.68 3.348-3.97z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
-
-function CloseIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
+import {
+  BotIcon,
+  ChatBubbleLeftRightIcon,
+  SparklesIcon,
+  XMarkIcon,
+} from "@/components/icons";
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,11 +21,19 @@ export function ChatWidget() {
           aria-label="Chat assistant"
         >
           <div className="flex items-center justify-between border-b border-slate-200 bg-indigo-600 px-4 py-3">
-            <div>
-              <p className="text-sm font-semibold text-white">AI Assistant</p>
-              <p className="text-xs text-indigo-200">
-                Ask about RAG, Next.js, or AI
-              </p>
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-500 text-white">
+                <BotIcon size={20} />
+              </div>
+              <div>
+                <p className="flex items-center gap-1.5 text-sm font-semibold text-white">
+                  <SparklesIcon size={14} />
+                  AI Assistant
+                </p>
+                <p className="text-xs text-indigo-200">
+                  Ask about RAG, Next.js, or AI
+                </p>
+              </div>
             </div>
             <button
               type="button"
@@ -63,7 +41,7 @@ export function ChatWidget() {
               className="rounded-lg p-1.5 text-indigo-200 transition hover:bg-indigo-500 hover:text-white"
               aria-label="Close chat"
             >
-              <CloseIcon className="h-5 w-5" />
+              <XMarkIcon size={20} />
             </button>
           </div>
           <div className="min-h-0 flex-1">
@@ -80,9 +58,9 @@ export function ChatWidget() {
         aria-expanded={isOpen}
       >
         {isOpen ? (
-          <CloseIcon className="h-6 w-6" />
+          <XMarkIcon size={24} />
         ) : (
-          <ChatIcon className="h-6 w-6" />
+          <ChatBubbleLeftRightIcon size={24} />
         )}
       </button>
     </div>

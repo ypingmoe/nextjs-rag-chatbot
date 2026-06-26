@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,11 +23,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-slate-100 font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} h-screen overflow-hidden bg-slate-100 font-sans antialiased`}
       >
-        {children}
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
