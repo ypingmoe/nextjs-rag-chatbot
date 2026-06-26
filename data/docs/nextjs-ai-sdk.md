@@ -1,4 +1,4 @@
-# Next.js + Vercel AI SDK
+﻿# Next.js + Vercel AI SDK
 
 The Vercel AI SDK (`ai` package) is the standard way to add streaming LLM chat to Next.js apps.
 
@@ -11,7 +11,7 @@ The Vercel AI SDK (`ai` package) is the standard way to add streaming LLM chat t
 
 ## Best practices for AI web apps
 
-1. Never expose API keys in the browser — use Route Handlers or Server Actions
+1. Never expose API keys in the browser - use Route Handlers or Server Actions
 2. Stream responses for better UX on long answers
 3. Include source citations in the system prompt when using RAG
 4. Add rate limiting and input validation in production

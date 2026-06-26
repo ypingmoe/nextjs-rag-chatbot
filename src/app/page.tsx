@@ -1,11 +1,11 @@
-import { Chat } from "@/components/chat";
+﻿import { Chat } from "@/components/chat";
 
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col px-4 py-8">
       <header className="mb-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-indigo-600">
-          ypingmoe · AI integration demo
+          ypingmoe | AI integration demo
         </p>
         <h1 className="mt-2 text-3xl font-bold text-slate-900">
           Next.js RAG Chatbot

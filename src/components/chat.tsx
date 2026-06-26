@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useChat } from "@ai-sdk/react";
 
@@ -56,7 +56,7 @@ export function Chat() {
         ))}
 
         {isLoading && (
-          <div className="text-sm text-slate-400">Retrieving context…</div>
+          <div className="text-sm text-slate-400">Retrieving context...</div>
         )}
       </div>
 
@@ -68,7 +68,7 @@ export function Chat() {
           <input
             value={input}
             onChange={handleInputChange}
-            placeholder="Ask about RAG, Next.js, or AI integration…"
+            placeholder="Ask about RAG, Next.js, or AI integration..."
             className="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none ring-indigo-500 focus:ring-2"
           />
           <button
